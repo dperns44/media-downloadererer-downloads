@@ -1,5 +1,6 @@
-Download **Media-Downloaderererer-1.8.0-beta.5-Setup.exe** and run it to update the Windows app. Existing projects and downloads stay in place.
+Download **Media-Downloaderererer-1.8.0-beta.6-Setup.exe** and run it to update the Windows app. Existing projects and downloads stay in place.
 
+- Play selection loops from Out back to In until paused, including cuts that end at the video's last frame. Moving a boundary stops playback and previews that frame. Lite uses the same looping behavior.
 - Typing In/Out times now moves the playhead and preview, matching dragged handles.
 - Pinterest image pins can follow their original Instagram, Vimeo, YouTube or X video link. The first carousel video is used and attributed.
 - Studio pages support public Mux players (including BUCK), Vimeo/YouTube embeds and direct MP4s. Squarespace hash routes preserve the selected project, including the Ken/Expedia example.
