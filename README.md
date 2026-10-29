@@ -14,7 +14,7 @@ Download a video. Keep the good part.
 
 ## Windows
 
-Download the Setup EXE above and run it. The installer includes the media tools and adds a desktop shortcut. This beta is unsigned; Windows or company policies may require approval. [Release details and checksums](releases/tag/v1.8.0-beta.4).
+Download the Setup EXE above and run it. The installer includes the media tools and adds a desktop shortcut. This beta is unsigned; Windows or company policies may require approval. [Release details and checksums](https://github.com/dperns44/media-downloadererer-downloads/releases/tag/v1.8.0-beta.4).
 
 ## Lite trial
 
