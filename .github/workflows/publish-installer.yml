@@ -1,0 +1,51 @@
+name: Publish verified Windows installer
+on:
+  workflow_dispatch:
+    inputs:
+      archive_url:
+        description: Temporary URL for the verified installer artifact
+        required: true
+        type: string
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Retrieve and verify installer
+        env:
+          ARCHIVE_URL: ${{ inputs.archive_url }}
+        run: |
+          python - <<'PY'
+          import os, urllib.request, urllib.parse, zipfile, pathlib, shutil, hashlib
+          url = os.environ['ARCHIVE_URL']
+          parsed = urllib.parse.urlparse(url)
+          if parsed.scheme != 'https' or not parsed.hostname.endswith('.r2.cloudflarestorage.com'):
+              raise SystemExit('Unsupported artifact origin')
+          target = pathlib.Path('release')
+          target.mkdir()
+          archive = target / 'installer.zip'
+          with urllib.request.urlopen(url, timeout=60) as source, archive.open('wb') as output:
+              total = 0
+              while chunk := source.read(1024 * 1024):
+                  total += len(chunk)
+                  if total > 500 * 1024 * 1024: raise SystemExit('Artifact too large')
+                  output.write(chunk)
+          name = 'Media-Downloaderererer-1.8.0-beta.7-Setup.exe'
+          with zipfile.ZipFile(archive) as bundle:
+              entries = [entry for entry in bundle.infolist() if pathlib.PurePosixPath(entry.filename).name == name]
+              if len(entries) != 1: raise SystemExit('Installer missing or ambiguous')
+              with bundle.open(entries[0]) as source, (target / name).open('wb') as output:
+                  shutil.copyfileobj(source, output)
+          digest = hashlib.file_digest((target / name).open('rb'), 'sha256').hexdigest()
+          if digest != '8d7648b28fd704d57f00701968cca73d54e9539ffa4b5398a16bf6571f3be610':
+              raise SystemExit('Installer checksum mismatch')
+          (target / 'SHA256SUMS.txt').write_text(digest + '  ' + name + '\n')
+          print('Verified installer checksum:', digest)
+          PY
+      - name: Publish installer
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release create v1.8.0-beta.7 release/Media-Downloaderererer-1.8.0-beta.7-Setup.exe release/SHA256SUMS.txt --repo "$GITHUB_REPOSITORY" --prerelease --title "Media Downloaderererer 1.8.0-beta.7 (Windows)" --notes-file RELEASE-NOTES.md

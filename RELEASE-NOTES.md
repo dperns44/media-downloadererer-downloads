@@ -1,5 +1,6 @@
-Download **Media-Downloaderererer-1.8.0-beta.6-Setup.exe** and run it to update the Windows app. Existing projects and downloads stay in place.
+Download **Media-Downloaderererer-1.8.0-beta.7-Setup.exe** and run it to update the Windows app. Existing projects and downloads stay in place.
 
+- The installed app, taskbar, desktop shortcut, installer and uninstaller use the same lime logo on a dark circular badge. Windows taskbar identity now matches the installer shortcut. Matching macOS Dock artwork is prepared; a Mac build remains untested.
 - Play selection loops from Out back to In until paused, including cuts that end at the video's last frame. Moving a boundary stops playback and previews that frame. Lite uses the same looping behavior.
 - Typing In/Out times now moves the playhead and preview, matching dragged handles.
 - Pinterest image pins can follow their original Instagram, Vimeo, YouTube or X video link. The first carousel video is used and attributed.
