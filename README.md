@@ -2,7 +2,7 @@
 
 Download a video. Keep the good part.
 
-[![Download the Windows app](assets/windows.svg)](https://github.com/dperns44/media-downloadererer-downloads/releases/download/v1.8.0-beta.6/Media-Downloaderererer-1.8.0-beta.6-Setup.exe)
+[![Download the Windows app](assets/windows.svg)](https://github.com/dperns44/media-downloadererer-downloads/releases/download/v1.8.0-beta.7/Media-Downloaderererer-1.8.0-beta.7-Setup.exe)
 [![Use Lite in your browser](assets/lite.svg)](https://media-downloaderererer-web.dperns44.chatgpt.site/)
 
 | | Windows app | Lite — web trial |
@@ -14,9 +14,11 @@ Download a video. Keep the good part.
 
 Cut previews loop between In and Out until you pause, in both the Windows app and Lite.
 
+The installed app uses the same lime logo on a dark circular badge for the desktop, taskbar, and installer.
+
 ## Windows
 
-Download the Setup EXE above and run it. The installer includes the media tools and adds a desktop shortcut. This beta is unsigned; Windows or company policies may require approval. [Release details and checksums](https://github.com/dperns44/media-downloadererer-downloads/releases/tag/v1.8.0-beta.6).
+Download the Setup EXE above and run it. The installer includes the media tools and adds a desktop shortcut. This beta is unsigned; Windows or company policies may require approval. [Release details and checksums](https://github.com/dperns44/media-downloadererer-downloads/releases/tag/v1.8.0-beta.7).
 
 ## Lite trial
 
